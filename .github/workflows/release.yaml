@@ -10,11 +10,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
-      assets=()
-      for asset in ./*.md; do
-        assets=("-a" "$asset")
-      done
-      hub release create "${assets[@]}" -m "$tag_name" $tag_name"
+        assets=()
+        for asset in ./*.md; do
+          assets=("-a" "$asset")
+        done
+        hub release create "${assets[@]}" -m "$tag_name" $tag_name"
       env:
         tag_name: ${{ github.ref }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
